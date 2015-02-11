@@ -28,4 +28,5 @@ run_analysis<-function(){
   dat<-arrange(dat,Subject, Activity)						### arranges by subject number then activity (still by underlying number)
   dat<-melt(dat, id=c('Subject','Activity'))					### convert data to long format
   dat<-dcast(dat, Subject+Activity~variable, mean)				### aggregates the data into a new dataset with the mean of the variable values as output
+  assign('tidy_data', dat, pos=globalenv())
 }
